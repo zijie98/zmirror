@@ -14,6 +14,7 @@
 # ############## Local Domain Settings ##############
 my_host_name = '127.0.0.1'  # !!!本机的域名!!!! 必须修改!
 my_host_scheme = 'http://'  # 本机的协议, 可选为 "http://" 和 "https://"
+my_host_port = None  # None表示使用默认端口, 可以设置成非标准端口, 比如 81
 
 # ############## Target Domain Settings ##############
 target_domain = 'www.pinterest.com'  # !!!!你的目标域名!!!!
@@ -32,6 +33,8 @@ external_domains = [
     "https://developers.pinterest.com",
     "policy.pinterest.com",
     "pinterest.fr",
+    "s.pinimg.com",
+    "i.pinimg.com",
 ]
 
 # 这些是一些公共的静态资源域名, 会被自动添加到你上面的 external_domains 中
@@ -96,6 +99,7 @@ BOILERPLATE_EXTERNAL_DOMAINS = [
     "api.facebook.com",
     "secure.facebook.com",
     "zh-cn.facebook.com",
+    "connect.facebook.net"
 
     # twitter静态域名
     'g2.twimg.com',
