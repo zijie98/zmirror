@@ -32,8 +32,6 @@ external_domains = [
     "https://developers.pinterest.com",
     "policy.pinterest.com",
     "pinterest.fr",
-    "pinterest.de",
-    "pinterest.pt",
 ]
 
 # 这些是一些公共的静态资源域名, 会被自动添加到你上面的 external_domains 中
@@ -139,8 +137,6 @@ enable_automatic_domains_whitelist = True
 domains_whitelist_auto_add_glob_list = (
     # 将你的域名通配符填写到这, 比如下面这样:
     "*.pinterest.com","*.pinterest.jp",
-    "www.pinterest.fr","www.pinterest.de",
-    "www.pinterest.pt",
     # "*.example.org",
 )
 
