@@ -23,22 +23,101 @@ target_scheme = 'https://'
 # 这里面大部分域名都是通过 `enable_automatic_domains_whitelist` 自动采集的, 我只是把它们复制黏贴到了这里
 # 实际镜像一个新的站时, 手动只需要添加很少的几个域名就可以了.
 # 自动采集(如果开启的话)会不断告诉你新域名
-external_domains = [
+external_domains = (
     "www.pinterest.com"
-    "about.pinterest.com",
     "pinterest.jp",
-    "blog.pinterest.com",
     "business.pinterest.com",
     "careers.pinterest.com",
-    "https://developers.pinterest.com",
     "policy.pinterest.com",
     "pinterest.fr",
     "s.pinimg.com",
     "i.pinimg.com",
-]
+    "s-media-cache-ak0.pinimg.com",
+    "connect.facebook.net",
+    "radar.cedexis.com",
+    "v-pinimg-com-edgekey-net.pinimg.com",
+    "cs911-wac-alphacdn-net.pinimg.com",
+    "s-media-cache-ak0.pinimg.com",
+    "rpt.cedexis.com",
+    "ct.pinterest.com",
+    "newsroom.pinterest.com",
+    "pinimg-com-eip-akadns-net.pinimg.com",
+    "i-pinimg-com-edgekey-net.pinimg.com",
+    "www.gstatic.com",
+    "branch.io",
+    "cdn.ampproject.org",
+    "pinterest-media-upload.s3.amazonaws.com",
+    "pinterest-waterloo.s3.amazonaws.com",
+    "cedexis.com",
+    "cedexis-radar.net",
+    "notify.bugsnag.com",
+    "v-pinimg-com-edgekey-net.pinimg.com",
+    "dualstack-pinterest-map-fastly-net.pinimg.com"
+    "pinterest.com",
+    "www.pinterest.com",
+    "about.pinterest.com",
+    "blog.pinterest.com",
+    "ads.pinterest.com",
+    "api.pinterest.com",
+    "analytics.pinterest.com",
+    "br.pinterest.com",
+    "canary.pinterest.com",
+    "cz.pinterest.com",
+    "de.pinterest.com",
+    "dk.pinterest.com",
+    "es.pinterest.com",
+    "fi.pinterest.com",
+    "fr.pinterest.com",
+    "gb.pinterest.com",
+    "gr.pinterest.com",
+    "help.pinterest.com",
+    "hu.pinterest.com",
+    "id.pinterest.com",
+    "in.pinterest.com",
+    "it.pinterest.com",
+    "jp.pinterest.com",
+    "kr.pinterest.com",
+    "media-cache-ec0.pinterest.com",
+    "pl.pinterest.com",
+    "pt.pinterest.com",
+    "ro.pinterest.com",
+    "ru.pinterest.com",
+    "se.pinterest.com",
+    "sk.pinterest.com",
+    "tr.pinterest.com",
+    "uk.pinterest.com",
+    "no.pinterest.com",
+    "nl.pinterest.com",
+    "engineering.pinterest.com",
+    "dev.pinterest.com",
+    "post.pinterest.com",
+    "trk.pinterest.com",
+    "developers.pinterest.com",
+
+    'www.facebook.com',
+    'connect.facebook.net',
+    'static.xx.fbcdn.net',
+    'pixel.facebook.com',
+    'facebook.com',
+    'scontent.xx.fbcdn.net',
+    '3-edge-chat.facebook.com',
+    'm.facebook.com',
+    'fbcdn-photos-a-a.akamaihd.net',
+    'api.facebook.com',
+    'api-read.facebook.com',
+    'l.facebook.com',
+    'zh-cn.facebook.com',
+    'upload.facebook.com',
+    'vupload2.facebook.com',
+    'vupload-edge.facebook.com',
+    'staticxx.facebook.com',
+    'external.xx.fbcdn.net',
+
+    'fonts.googleapis.com',
+)
 
 # 这些是一些公共的静态资源域名, 会被自动添加到你上面的 external_domains 中
-BOILERPLATE_EXTERNAL_DOMAINS = [
+BOILERPLATE_EXTERNAL_DOMAINS = (
 
     # Google域名
     'www.google.com',
@@ -129,7 +208,7 @@ BOILERPLATE_EXTERNAL_DOMAINS = [
     "code.jquery.com",
     # boostrap-maxcdn
     "maxcdn.bootstrapcdn.com",
-]
+)
 
 # 在这里面的站点会被强制使用HTTPS, 暂不支持通配符
 force_https_domains = 'ALL'
@@ -140,7 +219,7 @@ force_https_domains = 'ALL'
 enable_automatic_domains_whitelist = True
 domains_whitelist_auto_add_glob_list = (
     # 将你的域名通配符填写到这, 比如下面这样:
-    "*.pinterest.com","*.pinterest.jp",
+    "*.facebook.com', '*.fbcdn.net', '*.facebook.net', '*.akamaihd.net', *.pinterest.com","*.pinterest.jp",
     # "*.example.org",
 )
 
@@ -155,11 +234,3 @@ requests_proxies = dict(
 
 # ### 其他高级配置请看 config_default.py 中的详细说明
 
-
-# ------------ 以下部分为一些简单的逻辑, 请不要修改下面的代码 ----------------
-external_domains += BOILERPLATE_EXTERNAL_DOMAINS  # 将公共静态资源域名加入到external_domains中
-# 将公共静态资源域名设置为强制HTTPS
-if force_https_domains == "NONE":
-    force_https_domains = BOILERPLATE_EXTERNAL_DOMAINS
-elif isinstance(force_https_domains, (list, tuple)):
-    force_https_domains = list(force_https_domains) + BOILERPLATE_EXTERNAL_DOMAINS
